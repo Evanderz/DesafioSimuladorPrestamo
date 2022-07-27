@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+
+</head>
+
+<body>
+
+
+  <main>
+
+    <Script src="funciones.js"> </Script>
+
+    <script>
+
+      /*
+      Segun tu ingreso te informa que prestamo podes sacar y te da la opcion de seleccionar en 12,24 y 36 cuotas para despues informarte como te queda el plan, en caso de no poner ESC o un monto cuando te lo pide saldra error.
+      */
+
+      let presupuestoCliente;
+      let categoriaPresupuesto;
+      let montoCuotas;
+      let montoPrestamo;
+      let numeroOpciones;
+      let validadorPlan;
+      const tasaInteresAnual = 60;
+
+      
+
+
+       
+
+      do {
+
+        validadorPlan = 0;
+        
+        presupuestoCliente = prompt("Ingrese el ingreso neto de su sueldo o ESC para salir:")
+
+        if (presupuestoCliente != "ESC") {
+          presupuestoCliente = parseInt(presupuestoCliente);
+
+
+          if (presupuestoCliente < 30000) {
+
+
+            alert("Su ingreso no es valido para nuestros planes");
+
+
+          } else if ((presupuestoCliente > 29999) && (presupuestoCliente < 70000)) {
+
+            categoriaPresupuesto = "bajo";
+            montoPrestamo = 100000;
+            calculoMontoCuotas();
+
+          } else if ((presupuestoCliente > 69999) && (presupuestoCliente < 150000)) {
+
+            categoriaPresupuesto = "medio";
+            montoPrestamo = 250000;
+            calculoMontoCuotas();
+
+          } else if ((presupuestoCliente > 149999)) {
+
+            categoriaPresupuesto = "alto";
+            montoPrestamo = 450000;
+            calculoMontoCuotas();
+
+          } else {
+
+            alert("Comando invalido");
+
+          }
+
+          
+
+
+        }
+
+      } while (presupuestoCliente != "ESC")      
+    </script>
+
+  </main>
+
+</body>
+
+</html>
